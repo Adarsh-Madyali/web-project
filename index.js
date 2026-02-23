@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
     connection.query(q, (err, result) => {
       if(err) throw err;
       let count = result[0]["count(*)"];
-      res.render("home.ejs", {count});
+      res.render("home", {count});
     });
   } catch(err){
     console.log(err);
@@ -54,7 +54,7 @@ app.get("/user", (req, res) => {
   try{
     connection.query(q, (err, user) => {
       if(err) throw err;
-      res.render("showuser.ejs", {user});
+      res.render("showuser", {user});
     });
   } catch(err){
     console.log(err);
@@ -86,7 +86,7 @@ app.get("/user/:id/edit", (req, res) => {
     connection.query(q, (err, result) => {
       if(err) throw err;
       let user = result[0];
-      res.render("edit.ejs", { user });
+      res.render("edit", { user });
     });
   } catch(err){
     console.log(err);
